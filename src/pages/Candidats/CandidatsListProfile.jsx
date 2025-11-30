@@ -20,10 +20,10 @@ const loadCandidats = async () => {
     return cached;
   }
 
-  console.log("🌐 Chargement depuis API...");
+  console.log("Chargement depuis API...");
   const data = await getPublicCandidats(); 
   await db.put("candidats", data, "all");
-  console.log("💾 Données mises en cache IndexedDB");
+  console.log("Données mises en cache IndexedDB");
   return data;
 };
 
