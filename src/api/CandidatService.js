@@ -1,6 +1,6 @@
 // src/api/http.js
 const API_BASE_URL = import.meta.env.VITE_BACKEND_API
-  || "https://back-talentmatch-2-596715584253.us-central1.run.app";
+  || "https://back-matching-1-860478262732.us-central1.run.app";
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
