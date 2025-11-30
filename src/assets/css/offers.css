@@ -1,0 +1,16 @@
+.offer-card{
+    @apply rounded-md;
+    @apply bg-white;
+    @apply shadow-md;
+}
+.offer-card-title{
+    @apply mb-4;
+    @apply flex justify-between
+}
+
+.card{
+    @apply rounded-md;
+    @apply bg-white;
+    @apply shadow-md;
+    @apply p-6
+}

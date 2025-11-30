@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input {
+  @apply mt-1 w-full rounded-lg border-gray-300 focus:border-primary focus:ring-0;
+}
+.btn-primary {
+  @apply inline-flex items-center justify-center px-5 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition;
+}
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-5 py-2 rounded-lg bg-secondary text-gray-900 hover:bg-secondary/90 transition;
+}
