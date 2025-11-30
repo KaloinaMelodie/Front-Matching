@@ -103,11 +103,11 @@ export default function CandidateImportPage() {
     const signal = begin('submit');
 
     try {
-      const created = await api.createCandidate(payload, { signal });
-      const id = getId(created);
-      if (!id) throw new Error("ID candidat introuvable dans la réponse.");
+      // const created = await api.createCandidate(payload, { signal });
+      // const id = getId(created);
+      // if (!id) throw new Error("ID candidat introuvable dans la réponse.");
 
-      const matches = await api.matchByCv(id, { top: 20, signal });
+      const matches = await api.matchByCv(payload, { top: 20, signal });
       const list = (Array.isArray(matches) ? matches : []).map(toDisplay);
       setOffers(list);
     } catch (e) {

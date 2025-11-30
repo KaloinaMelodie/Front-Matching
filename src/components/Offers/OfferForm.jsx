@@ -61,23 +61,16 @@ export default function OfferForm({ onMatch }) {
     newData.avantages_entreprise = newData.avantages_entreprise.join(",");
     newData.lien_offre = "";
     newData.lien_description = "";
-    const response = await fetch(`${API_BASE_URL}/api/offres`, {
-      method: "POST",
-      body: JSON.stringify(newData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const res = await response.json();
-    await searchMatch(res.id);
+    await searchMatch(newData);
   };
-  const searchMatch = async (id) => {
+  const searchMatch = async (offre) => {
     const response = await fetch(
-      `${API_BASE_URL}/api/matching/offre/${id}`,
+      `${API_BASE_URL}/api/matching/offre?top_n=20`,
       {
-        method: "GET",
+        method: "POST",
+      body: JSON.stringify(offre),
         headers: {
-          Accept: "application/json",
+          "Content-Type": "application/json",
         },
       }
     );

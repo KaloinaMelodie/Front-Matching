@@ -119,23 +119,8 @@ export const api = {
     return jsonFetch("/api/candidats", { method: "POST", body: payload, signal, timeoutMs, retries });
   },
 
-  async matchByCv(candidatId, { top = 20, signal, timeoutMs = 900_000, retries = 0 } = {}) {
-    const id = encodeURIComponent(candidatId);
-    // const res = await safeFetch(
-    //   `${API_BASE_URL}/api/matching/cv/${id}?top_n=${top}`,
-    //   { method: "GET", headers: { Accept: "application/json" }, signal },
-    //   { timeoutMs, retries }
-    // );
-    const res = await fetch(
-      `${API_BASE_URL}/api/matching/cv/${id}?top_n=${top}`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-    return parseMaybeJson(res);
+  async matchByCv(candidat, { top = 20, signal, timeoutMs = 900_000, retries = 0 } = {}) {  
+    return jsonFetch(`/api/matching/cv?top_n=${top}`, { method: "POST", body: candidat});
   },
 
   extractText(file, { signal, timeoutMs, retries } = {}) {
